@@ -4,10 +4,14 @@ import android.app.Activity
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
+import android.graphics.Matrix
 import android.view.View
 import java.io.ByteArrayOutputStream
 
-
+/*
+ * @author Himanshu-Singh
+ * Initialise the class by passing the reference of activity
+ */
 class Screenshot(private val activity: Activity) {
 
     /*
@@ -59,4 +63,36 @@ class Screenshot(private val activity: Activity) {
         val byteArray = stream.toByteArray()
         return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
     }
+    /*
+     * Take Screenshot of the bitmap flipping it horizontally or vertically
+     * @ param view
+     * @ return bitmap
+     */
+
+    fun getScreenshot(view: View, flip: Flip): Bitmap {
+        val cx = getScreenshot(view).width / 2f
+        val cy = getScreenshot(view).height / 2f
+        return when (flip) {
+            Flip.HORIZONTALLY -> getScreenshot(view).flip(-1f, 1f, cx, cy)
+            Flip.VERTICALLY -> getScreenshot(view).flip(1f, -1f, cx, cy)
+        }
+
+    }
+
+    fun getScreenshot(flip: Flip): Bitmap {
+        val fullView = activity.window.decorView.rootView
+        val cx = getScreenshot(fullView).width / 2f
+        val cy = getScreenshot(fullView).height / 2f
+        return when (flip) {
+            Flip.HORIZONTALLY -> getScreenshot(fullView).flip(-1f, 1f, cx, cy)
+            Flip.VERTICALLY -> getScreenshot(fullView).flip(1f, -1f, cx, cy)
+        }
+    }
+
+
+    private fun Bitmap.flip(x: Float, y: Float, cx: Float, cy: Float): Bitmap {
+        val matrix = Matrix().apply { postScale(x, y, cx, cy) }
+        return Bitmap.createBitmap(this, 0, 0, width, height, matrix, true)
+    }
+
 }
