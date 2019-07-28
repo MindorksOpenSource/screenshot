@@ -1,4 +1,4 @@
-package com.mindorks.values
+package com.mindorks.utils
 
 import com.mindorks.properties.Flip
 import com.mindorks.properties.Quality

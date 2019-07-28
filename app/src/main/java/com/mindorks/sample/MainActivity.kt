@@ -2,7 +2,7 @@ package com.mindorks.sample
 
 import android.os.Bundle
 import android.os.Handler
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.mindorks.Screenshot
 import com.mindorks.properties.Flip
 import com.mindorks.properties.Quality

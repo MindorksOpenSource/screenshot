@@ -5,11 +5,11 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.view.View
-import com.mindorks.values.Default
 import com.mindorks.properties.Flip
 import com.mindorks.properties.Quality
 import com.mindorks.properties.Rotate
 import com.mindorks.utils.BitmapUtils
+import com.mindorks.utils.Default
 import java.io.ByteArrayOutputStream
 
 class ScreenshotHelper(activity: Activity) {
@@ -24,7 +24,7 @@ class ScreenshotHelper(activity: Activity) {
     }
 
     fun setQuality(quality: Quality): ScreenshotHelper = apply {
-        this.qualityOutput = qualityOutput
+        this.qualityOutput = quality
     }
 
     fun setFlip(flip: Flip): ScreenshotHelper = apply {

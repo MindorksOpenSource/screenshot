@@ -25,7 +25,7 @@ object BitmapUtils {
         return Bitmap.createBitmap(this, 0, 0, width, height, matrix, true)
     }
 
-    fun Bitmap.rotate(degrees: Float): Bitmap {
+    private fun Bitmap.rotate(degrees: Float): Bitmap {
         val matrix = Matrix().apply { postRotate(degrees) }
         return Bitmap.createBitmap(this, 0, 0, width, height, matrix, true)
     }
