@@ -1,16 +1,16 @@
 package com.mindorks
 
 import android.app.Activity
+import com.mindorks.core.ScreenshotHelper
 
 /*
  * @author Himanshu-Singh
- * Initialise the class by passing the reference of activity
+ * Initialise using Screenshot.with(activityReference)
  */
 object Screenshot {
 
-    fun with(activity: Activity): ScreenShott {
-        return ScreenShott(activity)
+    fun with(activity: Activity): ScreenshotHelper {
+        return ScreenshotHelper(activity)
     }
-
 
 }

@@ -3,8 +3,8 @@ package com.mindorks.sample
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
-import com.mindorks.Flip
-import com.mindorks.Quality
+import com.mindorks.properties.Flip
+import com.mindorks.properties.Quality
 import com.mindorks.Screenshot
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
             image.setImageBitmap(
                 Screenshot.with(this)
                     .setQuality(Quality.LOW)
-                    .setFlip(Flip.NOTHING)
+                    .setFlip(Flip.HORIZONTALLY)
                     .getScreenshot()
             )
         }, 2000)

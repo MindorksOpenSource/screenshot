@@ -1,21 +1,22 @@
-package com.mindorks
+package com.mindorks.core
 
 import android.app.Activity
 import android.graphics.Bitmap
 import android.view.View
-import com.mindorks.core.ScreenshotGenerator
+import com.mindorks.properties.Flip
+import com.mindorks.properties.Quality
 
-class ScreenShott(private val activity: Activity) {
+class ScreenshotHelper(private val activity: Activity) {
 
     private var quality = Quality.HIGH
     private var flip = Flip.NOTHING
 
-    fun setQuality(quality: Quality): ScreenShott {
+    fun setQuality(quality: Quality): ScreenshotHelper {
         this.quality = quality
         return this;
     }
 
-    fun setFlip(flip: Flip): ScreenShott {
+    fun setFlip(flip: Flip): ScreenshotHelper {
         this.flip = flip
         return this
     }

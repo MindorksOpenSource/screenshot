@@ -2,9 +2,9 @@ package com.mindorks.utils
 
 import android.graphics.Bitmap
 import android.graphics.Matrix
-import com.mindorks.Flip
+import com.mindorks.properties.Flip
 
-object BitmapUtil {
+object BitmapUtils {
     fun flip(bitmap: Bitmap, flip: Flip): Bitmap {
         val cx = bitmap.width / 2f
         val cy = bitmap.height / 2f

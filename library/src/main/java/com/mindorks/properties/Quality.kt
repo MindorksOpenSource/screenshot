@@ -1,4 +1,4 @@
-package com.mindorks
+package com.mindorks.properties
 
 /**
  * Quality returns the value of bitmap

@@ -1,4 +1,4 @@
-package com.mindorks
+package com.mindorks.properties
 
 enum class Flip(flip: Int) {
     VERTICALLY(0),

@@ -5,9 +5,9 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.view.View
-import com.mindorks.Flip
-import com.mindorks.Quality
-import com.mindorks.utils.BitmapUtil
+import com.mindorks.properties.Flip
+import com.mindorks.properties.Quality
+import com.mindorks.utils.BitmapUtils
 import java.io.ByteArrayOutputStream
 
 class ScreenshotGenerator(private val activity: Activity) {
@@ -49,7 +49,7 @@ class ScreenshotGenerator(private val activity: Activity) {
             compress(Bitmap.CompressFormat.JPEG, qualityOutput, stream)
         }
         val byteArray = stream.toByteArray()
-        return BitmapUtil.flip(BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size), flip)
+        return BitmapUtils.flip(BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size), flip)
 
     }
 
