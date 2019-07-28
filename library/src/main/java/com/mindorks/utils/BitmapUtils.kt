@@ -17,13 +17,8 @@ object BitmapUtils {
         }
     }
 
-    fun rotateBitmap(bitmap: Bitmap, rotate: Rotate): Bitmap = when (rotate) {
-        Rotate.DEGREE_0 -> bitmap.rotate(0F)
-        Rotate.DEGREE_90 -> bitmap.rotate(90F)
-        Rotate.DEGREE_180 -> bitmap.rotate(180F)
-        Rotate.DEGREE_270 -> bitmap.rotate(270F)
+    fun rotateBitmap(bitmap: Bitmap, rotate: Rotate): Bitmap = bitmap.rotate(rotate.rotationDegree)
 
-    }
 
     private fun Bitmap.flip(x: Float, y: Float, cx: Float, cy: Float): Bitmap {
         val matrix = Matrix().apply { postScale(x, y, cx, cy) }

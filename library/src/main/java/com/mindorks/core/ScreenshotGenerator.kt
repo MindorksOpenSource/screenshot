@@ -13,6 +13,7 @@ import com.mindorks.utils.BitmapUtils
 import java.io.ByteArrayOutputStream
 
 class ScreenshotGenerator(activity: Activity) {
+
     private var qualityOutput = Default.QUALITY_VALUE
     private var flip = Default.FLIP_VALUE
     private var rotate = Default.ROTATION_VALUE
@@ -22,14 +23,8 @@ class ScreenshotGenerator(activity: Activity) {
         this.outputView = view
     }
 
-
     fun setQuality(quality: Quality): ScreenshotGenerator = apply {
-        this.qualityOutput = when (quality) {
-            Quality.LOW -> 25
-            Quality.MEDIUM -> 75
-            Quality.AVERAGE -> 50
-            else -> 100
-        }
+        this.qualityOutput = qualityOutput
     }
 
     fun setFlip(flip: Flip): ScreenshotGenerator = apply {
@@ -52,7 +47,7 @@ class ScreenshotGenerator(activity: Activity) {
         }
 
         returnedBitmap.run {
-            compress(Bitmap.CompressFormat.JPEG, qualityOutput, stream)
+            compress(Bitmap.CompressFormat.JPEG, qualityOutput.quality, stream)
         }
         val byteArray = stream.toByteArray()
         val bitmapAfterFlip = BitmapUtils.flip(BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size), flip)

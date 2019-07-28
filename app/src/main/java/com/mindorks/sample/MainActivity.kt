@@ -19,9 +19,8 @@ class MainActivity : AppCompatActivity() {
             image.setImageBitmap(
 
                 Screenshot.with(this)
-                    .setView(view)
                     .setQuality(Quality.AVERAGE)
-                    .setRotation(Rotate.DEGREE_0)
+                    .setRotation(Rotate.DEGREE_90)
                     .setFlip(Flip.HORIZONTALLY)
                     .getScreenshot()
             )

@@ -10,7 +10,7 @@ import com.mindorks.properties.Rotate
 
 class ScreenshotHelper constructor(private val activity: Activity) {
 
-    private var quality = Default.QUALITY_HIGH
+    private var quality = Default.QUALITY_VALUE
     private var flip = Default.FLIP_VALUE
     private var rotate = Default.ROTATION_VALUE
     private var outputView = activity.window.decorView.rootView
