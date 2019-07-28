@@ -1,7 +1,7 @@
 package com.mindorks
 
 import android.app.Activity
-import com.mindorks.core.ScreenshotHelper
+import com.mindorks.core.ScreenshotBuilder
 
 /*
  * @author Himanshu-Singh
@@ -9,6 +9,6 @@ import com.mindorks.core.ScreenshotHelper
  */
 object Screenshot {
 
-    fun with(activity: Activity): ScreenshotHelper = ScreenshotHelper(activity)
+    fun with(activity: Activity): ScreenshotBuilder = ScreenshotBuilder(activity)
 
 }
