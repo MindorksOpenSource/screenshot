@@ -17,12 +17,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Handler().postDelayed(Runnable {
             image.setImageBitmap(
+
                 Screenshot.with(this)
-                    .setQuality(Quality.AVERAGE).setRotation(Rotate.DEGREE_0)
+                    .setView(view)
+                    .setQuality(Quality.AVERAGE)
+                    .setRotation(Rotate.DEGREE_0)
                     .setFlip(Flip.HORIZONTALLY)
                     .getScreenshot()
             )
         }, 2000)
 
     }
+
 }

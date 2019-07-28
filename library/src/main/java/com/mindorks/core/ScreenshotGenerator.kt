@@ -5,17 +5,19 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.view.View
+import com.mindorks.properties.Default
 import com.mindorks.properties.Flip
 import com.mindorks.properties.Quality
 import com.mindorks.properties.Rotate
 import com.mindorks.utils.BitmapUtils
 import java.io.ByteArrayOutputStream
 
-class ScreenshotGenerator(private val activity: Activity) {
+class ScreenshotGenerator(activity: Activity) {
+    private var qualityOutput = Default.QUALITY_VALUE
+    private var flip = Default.FLIP_VALUE
+    private var rotate = Default.ROTATION_VALUE
     private var outputView = activity.window.decorView.rootView
-    private var qualityOutput = 100
-    private var flip = Flip.NOTHING
-    private var rotate = Rotate.DEGREE_0
+
     fun setView(view: View): ScreenshotGenerator = apply {
         this.outputView = view
     }
