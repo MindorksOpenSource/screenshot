@@ -9,4 +9,5 @@ enum class Quality(val quality: Int) {
     MEDIUM(75),
     AVERAGE(50),
     LOW(25)
+
 }

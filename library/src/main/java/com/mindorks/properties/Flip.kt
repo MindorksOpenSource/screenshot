@@ -5,4 +5,5 @@ enum class Flip {
     VERTICALLY,
     HORIZONTALLY,
     NOTHING
+
 }

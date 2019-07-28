@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.view.View
-import com.mindorks.properties.Default
+import com.mindorks.values.Default
 import com.mindorks.properties.Flip
 import com.mindorks.properties.Quality
 import com.mindorks.properties.Rotate
