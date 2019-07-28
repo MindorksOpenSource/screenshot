@@ -9,8 +9,6 @@ import com.mindorks.core.ScreenshotHelper
  */
 object Screenshot {
 
-    fun with(activity: Activity): ScreenshotHelper {
-        return ScreenshotHelper(activity)
-    }
+    fun with(activity: Activity): ScreenshotHelper = ScreenshotHelper(activity)
 
 }

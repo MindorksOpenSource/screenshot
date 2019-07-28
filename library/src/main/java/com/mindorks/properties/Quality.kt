@@ -1,7 +1,7 @@
 package com.mindorks.properties
 
 /**
- * Quality returns the value of bitmap
+ * Quality returns the quality of bitmap
  */
 enum class Quality(quality: Int) {
     HIGH(100),

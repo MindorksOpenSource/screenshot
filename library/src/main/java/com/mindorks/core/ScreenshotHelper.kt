@@ -7,25 +7,23 @@ import com.mindorks.properties.Flip
 import com.mindorks.properties.Quality
 import com.mindorks.properties.Rotate
 
-class ScreenshotHelper(private val activity: Activity) {
+class ScreenshotHelper constructor(private val activity: Activity) {
 
     private var quality = Quality.HIGH
     private var flip = Flip.NOTHING
     private var rotate = Rotate.DEGREE_0
 
-    fun setQuality(quality: Quality): ScreenshotHelper {
+
+    fun setQuality(quality: Quality): ScreenshotHelper = apply {
         this.quality = quality
-        return this;
     }
 
-    fun setFlip(flip: Flip): ScreenshotHelper {
+    fun setFlip(flip: Flip): ScreenshotHelper = apply {
         this.flip = flip
-        return this
     }
 
-    fun setRotation(rotate: Rotate): ScreenshotHelper {
+    fun setRotation(rotate: Rotate): ScreenshotHelper = apply {
         this.rotate = rotate
-        return this
     }
 
     fun getScreenshot(): Bitmap {

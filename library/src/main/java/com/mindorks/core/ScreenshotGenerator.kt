@@ -16,29 +16,26 @@ class ScreenshotGenerator(private val activity: Activity) {
     private var qualityOutput = 100
     private var flip = Flip.NOTHING
     private var rotate = Rotate.DEGREE_0
-    fun setView(view: View): ScreenshotGenerator {
+    fun setView(view: View): ScreenshotGenerator = apply {
         this.outputView = view
-        return this
     }
 
-    fun setQuality(quality: Quality): ScreenshotGenerator {
+
+    fun setQuality(quality: Quality): ScreenshotGenerator = apply {
         this.qualityOutput = when (quality) {
             Quality.LOW -> 25
             Quality.MEDIUM -> 75
             Quality.AVERAGE -> 50
             else -> 100
         }
-        return this;
     }
 
-    fun setFlip(flip: Flip): ScreenshotGenerator {
+    fun setFlip(flip: Flip): ScreenshotGenerator = apply {
         this.flip = flip
-        return this
     }
 
-    fun setRotation(rotate: Rotate): ScreenshotGenerator {
+    fun setRotation(rotate: Rotate): ScreenshotGenerator = apply {
         this.rotate = rotate
-        return this
     }
 
     private fun getScreenshot(view: View): Bitmap {
@@ -62,9 +59,6 @@ class ScreenshotGenerator(private val activity: Activity) {
 
     }
 
-
-    fun getScreenshot(): Bitmap {
-        return getScreenshot(outputView)
-    }
+    fun getScreenshot(): Bitmap = getScreenshot(outputView)
 
 }
