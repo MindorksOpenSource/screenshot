@@ -9,7 +9,11 @@ import com.mindorks.properties.Rotate
 import com.mindorks.utils.BitmapUtils
 import com.mindorks.utils.Default
 
-class ScreenshotBuilder constructor(private val activity: Activity) {
+
+/**
+ * ScreenshotBuilder is the builder class for Screenshot builder.
+ */
+class ScreenshotBuilder constructor(activity: Activity) {
 
     private var quality = Default.QUALITY_VALUE
     private var flip = Default.FLIP_VALUE
@@ -33,6 +37,6 @@ class ScreenshotBuilder constructor(private val activity: Activity) {
     }
 
     fun getScreenshot(): Bitmap {
-        return BitmapUtils.getScreenshot(activity, outputView, rotate, quality, flip)
+        return BitmapUtils.getScreenshot(outputView, rotate, quality, flip)
     }
 }

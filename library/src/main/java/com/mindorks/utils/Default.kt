@@ -4,6 +4,9 @@ import com.mindorks.properties.Flip
 import com.mindorks.properties.Quality
 import com.mindorks.properties.Rotate
 
+/**
+ * @Default provides the default value for all properties
+ */
 object Default {
 
     val ROTATION_VALUE = Rotate.DEGREE_0
