@@ -20,8 +20,7 @@ class MainActivity : AppCompatActivity() {
 
                 Screenshot.with(this)
                     .setView(view)
-                    .setQuality(Quality.AVERAGE)
-                    .setRotation(Rotate.DEGREE_180)
+                    .setQuality(Quality.HIGH)
                     .setFlip(Flip.HORIZONTALLY)
                     .getScreenshot()
             )

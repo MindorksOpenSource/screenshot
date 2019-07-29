@@ -18,13 +18,13 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="32dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/view"/>
-    <FrameLayout android:layout_width="match_parent"
-                 android:id="@+id/view"
-                 android:background="#3c3c3c"
-                 android:layout_height="200dp"
-                 app:layout_constraintBottom_toBottomOf="parent"
-                 app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintEnd_toEndOf="parent">
+    <ImageView android:layout_width="match_parent"
+               android:id="@+id/view"
+               android:src="@drawable/ic_android_black_24dp"
+               android:layout_height="200dp"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintEnd_toEndOf="parent">
 
-    </FrameLayout>
+    </ImageView>
 </androidx.constraintlayout.widget.ConstraintLayout>

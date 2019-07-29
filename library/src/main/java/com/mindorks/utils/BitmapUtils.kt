@@ -1,14 +1,12 @@
 package com.mindorks.utils
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Canvas
-import android.graphics.Matrix
+import android.graphics.*
 import android.view.View
 import com.mindorks.properties.Flip
 import com.mindorks.properties.Quality
 import com.mindorks.properties.Rotate
 import java.io.ByteArrayOutputStream
+import java.io.OutputStream
 
 /**
  * @BitmpaUtils have all the bitmap properties and operations
@@ -53,18 +51,16 @@ object BitmapUtils {
      * @param flip
      */
     fun getScreenshot(view: View, rotate: Rotate, quality: Quality, flip: Flip): Bitmap {
+
         val stream = ByteArrayOutputStream()
         val returnedBitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(returnedBitmap)
-        view.background.also {
-            it.draw(canvas)
-        }
-        view.run {
-            draw(canvas)
-        }
-
+        val bgDrawable = view.background
+        if (bgDrawable != null) bgDrawable.draw(canvas)
+        else canvas.drawColor(Color.WHITE)
+        view.draw(canvas)
         returnedBitmap.run {
-            compress(Bitmap.CompressFormat.JPEG, quality.quality, stream)
+            compress(Bitmap.CompressFormat.JPEG, quality.quality, stream as OutputStream?)
         }
         val byteArray = stream.toByteArray()
         val bitmapAfterFlip = flip(BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size), flip)
