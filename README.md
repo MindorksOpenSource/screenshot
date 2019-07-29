@@ -21,6 +21,7 @@ allprojects {
 	}
 ```
 Add the dependency
+
 ```groovy
 dependencies {
 	        implementation 'com.github.MindorksOpenSource:screenshot:v0.0.1'
