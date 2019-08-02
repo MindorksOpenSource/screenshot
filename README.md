@@ -15,7 +15,7 @@ Add it in your root build.gradle at the end of repositories:
 ```groovy
 allprojects {
 		repositories {
-			...
+			
 			maven { url 'https://jitpack.io' }
 		}
 	}
@@ -40,8 +40,20 @@ Screenshot.with(this)
     .setView(/** the view **/)  
     .setQuality(Quality.HIGH)  
     .setFlip(Flip.HORIZONTALLY)  
-    .getScreenshot()
+    .getAsBitmap()
 ```
+
+
+Type 3 : You can also get the screenshot as a file,
+```kotlin
+ Screenshot.with(this)  
+     .setView(/** the view **/)  
+     .setQuality(Quality.HIGH)  
+     .setFlip(Flip.HORIZONTALLY)  
+     .getAsImageFile(/** Pass your Custom File **/)
+ ```
+If you leave the File path as empty, it will take the cache directory of the app.
+   
 You can set the quality by using,
 ```kotlin
 setQuality(/**Quality**/)

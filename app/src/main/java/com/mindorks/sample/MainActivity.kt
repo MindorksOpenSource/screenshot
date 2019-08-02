@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                     .setQuality(Quality.HIGH)
                     .setFlip(Flip.HORIZONTALLY)
                     .shareScreenshot(true)
-                    .getAsBitmap().toString()
+                    .getAsImageFile().toString()
             )
 
         }, 2000)

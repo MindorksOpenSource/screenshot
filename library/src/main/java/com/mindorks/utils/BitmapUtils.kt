@@ -1,7 +1,6 @@
 package com.mindorks.utils
 
 import android.app.Activity
-import android.content.ContextWrapper
 import android.graphics.*
 import android.net.Uri
 import android.view.View
@@ -84,10 +83,9 @@ object BitmapUtils {
         flip: Flip,
         path: File
     ): Uri {
-        val wrapper = ContextWrapper(activity)
-        val path = File(path, "images")
-        path.mkdirs()
-        val file: File = File("$path/${System.currentTimeMillis()}_image.png")
+        val pathOfFile = File(path, "images")
+        pathOfFile.mkdirs()
+        val file: File = File("$pathOfFile/${System.currentTimeMillis()}_image.png")
         try {
             val stream = FileOutputStream(file)
             getAsBitmap(activity, view, rotate, quality, flip).compress(Bitmap.CompressFormat.PNG, 100, stream)
@@ -97,6 +95,28 @@ object BitmapUtils {
             e.printStackTrace()
         }
         return Uri.parse(file.absolutePath)
+
+    }
+
+    fun getAsImageFile(
+        activity: Activity,
+        view: View,
+        rotate: Rotate,
+        quality: Quality,
+        flip: Flip
+    ): Uri {
+        val cachePath = File(activity.cacheDir, "images")
+        cachePath.mkdirs()
+        try {
+            val stream = FileOutputStream("$cachePath/image.png")
+            getAsBitmap(activity, view, rotate, quality, flip).compress(Bitmap.CompressFormat.PNG, 100, stream)
+            stream.close()
+
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        // Return the saved bitmap uri
+        return Uri.parse(cachePath.absolutePath)
 
     }
 
