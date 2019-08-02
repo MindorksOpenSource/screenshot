@@ -1,12 +1,14 @@
 package com.mindorks.utils
 
+import android.app.Activity
+import android.content.ContextWrapper
 import android.graphics.*
+import android.net.Uri
 import android.view.View
 import com.mindorks.properties.Flip
 import com.mindorks.properties.Quality
 import com.mindorks.properties.Rotate
-import java.io.ByteArrayOutputStream
-import java.io.OutputStream
+import java.io.*
 
 /**
  * @BitmpaUtils have all the bitmap properties and operations
@@ -50,7 +52,13 @@ object BitmapUtils {
      * @param quality
      * @param flip
      */
-    fun getScreenshot(view: View, rotate: Rotate, quality: Quality, flip: Flip): Bitmap {
+    fun getAsBitmap(
+        activity: Activity,
+        view: View,
+        rotate: Rotate,
+        quality: Quality,
+        flip: Flip
+    ): Bitmap {
 
         val stream = ByteArrayOutputStream()
         val returnedBitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
@@ -65,6 +73,30 @@ object BitmapUtils {
         val byteArray = stream.toByteArray()
         val bitmapAfterFlip = flip(BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size), flip)
         return rotateBitmap(bitmapAfterFlip, rotate)
+
+    }
+
+    fun getAsImageFile(
+        activity: Activity,
+        view: View,
+        rotate: Rotate,
+        quality: Quality,
+        flip: Flip,
+        path: File
+    ): Uri {
+        val wrapper = ContextWrapper(activity)
+        val path = File(path, "images")
+        path.mkdirs()
+        val file: File = File("$path/${System.currentTimeMillis()}_image.png")
+        try {
+            val stream = FileOutputStream(file)
+            getAsBitmap(activity, view, rotate, quality, flip).compress(Bitmap.CompressFormat.PNG, 100, stream)
+            stream.close()
+            stream.flush()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        return Uri.parse(file.absolutePath)
 
     }
 
