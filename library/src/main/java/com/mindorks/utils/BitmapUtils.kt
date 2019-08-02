@@ -115,7 +115,6 @@ object BitmapUtils {
         } catch (e: IOException) {
             e.printStackTrace()
         }
-        // Return the saved bitmap uri
         return Uri.parse(cachePath.absolutePath)
 
     }
