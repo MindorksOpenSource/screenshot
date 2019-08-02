@@ -50,9 +50,9 @@ Type 3 : You can also get the screenshot as a file,
      .setView(/** the view **/)  
      .setQuality(Quality.HIGH)  
      .setFlip(Flip.HORIZONTALLY)  
-     .getAsImageFile(/** Pass your Custom File **/)
+     .getAsImageFile(/** Pass your Custom File Path**/)
  ```
-If you leave the File path as empty, it will take the cache directory of the app.
+> If you leave the File path as empty, it will take the cache directory of the app.
    
 You can set the quality by using,
 ```kotlin
