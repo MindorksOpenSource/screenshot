@@ -54,5 +54,6 @@ class ScreenshotBuilder constructor(private val activity: Activity) {
 
     fun getAsImageFile(): Uri {
         return BitmapUtils.getAsImageFile(activity, outputView, rotate, quality, flip)
+
     }
 }
