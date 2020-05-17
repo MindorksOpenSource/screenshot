@@ -9,6 +9,8 @@ import com.mindorks.core.ScreenshotBuilder
  */
 object Screenshot {
 
-    fun with(activity: Activity): ScreenshotBuilder = ScreenshotBuilder(activity)
+    fun with(activity: Activity, block: ScreenshotBuilder.Builder.() -> Unit) =
+        ScreenshotBuilder.Builder(activity).apply(block).build()
+
 
 }
